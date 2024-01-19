@@ -108,6 +108,19 @@ int deletar() //função responsável por deletar os usuários no sistema
 		printf("O usuário não se encontra no sistema! \n"); //mensagem para o usuário
 		system("pause");		
 	}
+	else
+	{
+		fclose(file);
+		remove(cpf);
+		FILE *file;	
+		file = fopen(cpf,"r");
+		if(file == NULL)
+		{
+			printf("Usuário deletado com sucesso!.\n");
+			system("pause");
+		}
+	}
+	fclose(file);
 		
 } 	//fim função deletar
 
@@ -115,21 +128,21 @@ int main ()
 {
 	int opcao=0;  //Definindo variáveis
 	int laco=1;
-	char senhadigitada[]="a";
+	char senhadigitada[]="a"; //string char de senha
 	int comparacao;
 	
 	printf("### Cartório da EBAC ###\n\n");
 	printf("Login de administrador!\n\nDigite sua senha: ");
 	scanf("%s",senhadigitada);
 	
-	comparacao = strcmp(senhadigitada, "admin");
+	comparacao = strcmp(senhadigitada, "admin"); //comparação de login por senha
 	
 	if(comparacao == 0)
 	{
 		system("cls");
-    	for(laco=1;laco=1;)
+    	for(laco=1;laco=1;) 
     	{
-	   
+	    
 	     system("cls"); //responsável por limpar a tela
 	
 	     setlocale(LC_ALL, "Portuguese");  //Definindo a linguagem
@@ -176,3 +189,5 @@ int main ()
     else
       printf("Senha incorreta!");
 }
+
+//fim
